@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Demo_Web_Day4.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weight)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weight)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StudentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StudentID })
+        </td>
+    </tr>
+}
+
+</table>
